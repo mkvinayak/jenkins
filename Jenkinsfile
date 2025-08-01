@@ -54,17 +54,17 @@ pipeline {
 				stage(TEST ON CHROME) { 
 					steps {
 					  echo "This is TEST on Chrome browser"
-		              sh 'sleep 5;'
-		            } 
-                }
+		              
+		                    } 
+                        }
 				
 				stage(TEST ON SAFARI) { 
 					steps {
 					  echo "This is TEST on Safari browser"
-		              sh 'sleep 5;'
-		            } 
-                }
+		              
+		                    } 
+                         }
 	        }
-        }
-	}
+           }
+     }
 } 
