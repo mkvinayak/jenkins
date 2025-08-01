@@ -51,14 +51,14 @@ pipeline {
 		
         stage('TEST PARALLEL') {
 	        parallel{
-				stage(TEST ON CHROME) { 
-					steps {
-					  echo "This is TEST on Chrome browser"
+			stage('TEST ON CHROME') { 
+			  steps {
+			   echo "This is TEST on Chrome browser"
 		              
 		                    } 
                         }
 				
-				stage(TEST ON SAFARI) { 
+				stage('TEST ON SAFARI') { 
 					steps {
 					  echo "This is TEST on Safari browser"
 		              
