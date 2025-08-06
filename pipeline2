@@ -1,0 +1,57 @@
+
+pipeline {
+   agent none
+    stages {
+		stage('BUILD') {
+       agent {label, slave1}
+			steps {
+			 echo "This is Build Stage"
+            }
+        }
+		
+        stage('DEPLOY') {
+		    parallel {
+			    stage('SERVER 1') {
+            agent {label, slave2} 
+					steps {
+                     echo "This is Deploy to server 1"
+				    }
+		        }
+				
+				stage('SERVER 2') {
+            agent {label,slave2}
+					steps {
+                     echo "This is Deploy to server 2"
+				    }
+		        }
+				
+				 stage('SERVER 3') {
+              agent {label,slave2}
+					steps {
+                     echo "This is Deploy to server 3"
+				    }
+		        }
+            }
+        }
+		
+        stage('TEST PARALLEL') {
+	        parallel{
+			stage('TEST ON CHROME') { 
+           agent {label,slave1}
+			  steps {
+			   echo "This is TEST on Chrome browser"
+		              
+		                    } 
+                        }
+				
+				stage('TEST ON SAFARI') { 
+             agent {label,slave2}
+					steps {
+					  echo "This is TEST on Safari browser"
+		              
+		                    } 
+                         }
+	        }
+           }
+     }
+} 
