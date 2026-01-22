@@ -3,7 +3,7 @@
     stages {
       stage('BUILD') {
         steps {
-          echo "This is Build Stage"
+          echo "This is BUILD Stage"
         }
       }
         stage('DEPLOY') {
